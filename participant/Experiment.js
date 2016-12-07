@@ -9,6 +9,7 @@ import { Card, CardText } from 'material-ui/Card'
 import { nextQuestion } from './actions'
 import Subjects from 'components/Subjects'
 import EvaluationAxis from 'components/EvaluationAxis'
+import Experiment1 from './Experiment1'
 
 const mapStateToProps = ({ sequence, qswap }) => ({
   sequence, qswap 
@@ -33,14 +34,7 @@ class Experiment extends Component {
   render() {
     const { sequence, qswap } = this.props
     return ((sequence == "question1")?
-      <Card>
-        <CardText>
-          <p>{JSON.stringify(Subjects)}</p>
-          <p>{JSON.stringify(EvaluationAxis)}</p>
-          <p>{sequence}</p>
-        </CardText>
-        <RaisedButton label="next" onClick={this.next.bind(this, 1)}/>
-        </Card>
+      <Experiment1 />
         :(sequence == "question2")?
         <Card>
           <CardText>
