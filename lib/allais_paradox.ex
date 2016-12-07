@@ -1,10 +1,10 @@
-defmodule AllaisParadox do
+defmodule CourseEvaluationQuestionnaire do
   use XeeThemeScript
   require Logger
 
-  alias AllaisParadox.Main
-  alias AllaisParadox.Host
-  alias AllaisParadox.Participant
+  alias CourseEvaluationQuestionnaire.Main
+  alias CourseEvaluationQuestionnaire.Host
+  alias CourseEvaluationQuestionnaire.Participant
 
   # Callbacks
   def script_type do

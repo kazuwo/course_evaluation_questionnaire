@@ -1,5 +1,5 @@
-defmodule AllaisParadox.Main do
-  alias AllaisParadox.Actions
+defmodule CourseEvaluationQuestionnaire.Main do
+  alias CourseEvaluationQuestionnaire.Actions
 
   @pages ["waiting", "description", "experiment", "result"]
   @sequence ["question1", "question2", "answered"]

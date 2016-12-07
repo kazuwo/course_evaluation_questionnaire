@@ -1,5 +1,5 @@
-defmodule AllaisParadox.Participant do
-  alias AllaisParadox.Actions
+defmodule CourseEvaluationQuestionnaire.Participant do
+  alias CourseEvaluationQuestionnaire.Actions
 
   # Actions
   def fetch_contents(data, id) do

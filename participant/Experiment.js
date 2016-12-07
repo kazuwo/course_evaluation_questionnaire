@@ -10,8 +10,8 @@ import { nextQuestion } from './actions'
 import Subjects from 'components/Subjects'
 import EvaluationAxis from 'components/EvaluationAxis'
 
-const mapStateToProps = ({ sequence, qswap, question_text }) => ({
-  sequence, qswap, question_text
+const mapStateToProps = ({ sequence, qswap }) => ({
+  sequence, qswap 
 })
 
 class Experiment extends Component {
@@ -31,13 +31,12 @@ class Experiment extends Component {
   }
   
   render() {
-    const { sequence, qswap, question_text } = this.props
-    const Question = question_text["question"]
-    const Text = question_text[sequence]
-    return (sequence != "answered")?
+    const { sequence, qswap } = this.props
+    return (sequence == "question1")?
       <Card><CardText>
           <p>{JSON.stringify(Subjects)}</p>
           <p>{JSON.stringify(EvaluationAxis)}</p>
+          <p>{sequence}</p>
       </CardText></Card>
       : <Card><CardText><p>実験終了（ほかの人が終わるまでお待ちください）</p></CardText></Card>
   }

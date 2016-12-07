@@ -1,6 +1,6 @@
-defmodule AllaisParadox.Host do
-  alias AllaisParadox.Main
-  alias AllaisParadox.Actions
+defmodule CourseEvaluationQuestionnaire.Host do
+  alias CourseEvaluationQuestionnaire.Main
+  alias CourseEvaluationQuestionnaire.Actions
 
   require Logger
 
