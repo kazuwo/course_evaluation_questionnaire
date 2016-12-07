@@ -29,17 +29,35 @@ class Experiment extends Component {
       slideIndex: 1
     })
   }
-  
+
   render() {
     const { sequence, qswap } = this.props
-    return (sequence == "question1")?
-      <Card><CardText>
+    return ((sequence == "question1")?
+      <Card>
+        <CardText>
           <p>{JSON.stringify(Subjects)}</p>
           <p>{JSON.stringify(EvaluationAxis)}</p>
           <p>{sequence}</p>
-      </CardText></Card>
-      : <Card><CardText><p>実験終了（ほかの人が終わるまでお待ちください）</p></CardText></Card>
-  }
-}
+        </CardText>
+        <RaisedButton label="next" onClick={this.next.bind(this, 1)}/>
+        </Card>
+        :(sequence == "question2")?
+        <Card>
+          <CardText>
+            <p>{JSON.stringify(Subjects)}</p>
+            <p>{JSON.stringify(EvaluationAxis)}</p>
+            <p>{sequence}</p>
+          </CardText>
+        <RaisedButton label="next" onClick={this.next.bind(this, 1)}/>
+          </Card>
+          :
+          <Card>
+            <CardText>
+              <p>participants/Experiment.js</p>
+            </CardText>
+          </Card>
+          )
+          }
+          }
 
-export default connect(mapStateToProps)(Experiment)
+          export default connect(mapStateToProps)(Experiment)
