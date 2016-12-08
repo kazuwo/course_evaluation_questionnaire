@@ -16,13 +16,23 @@ const mapStateToProps = ({ sequence, qswap, }) => ({
 class Experiment2 extends Component {
   constructor(props) {
     super(props)
+    this.finishQuestion = this.finishQuestion.bind(this)
+    this.collectConfirm  = this.collectConfirm.bind(this)
     this.state = {
       value: 0,
     }
   }
 
+   finishQuestion() {
+     const { finEx2 } = this.props
+  }
+
+  collectConfirm(arr){
+    console.log(arr)
+  }
+
   render() {
-    const { sequence, qswap, finEx2} = this.props
+    const { sequence, qswap } = this.props
     let id = 0
     return(
       <div>
@@ -31,7 +41,7 @@ class Experiment2 extends Component {
             return(
               <Evaluation 
                 id={i}
-                finEx2={finEx2}
+                collectConfirm={this.collectConfirm}
               />
             )
           })}
@@ -39,7 +49,7 @@ class Experiment2 extends Component {
           <RaisedButton
             label='next'
             primary='true'
-            onClick={finEx2.bind(this, "finEx2")}
+            onClick={this.finishQuestion}
           />
         </Card>
       </div>
