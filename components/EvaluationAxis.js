@@ -1,3 +1,3 @@
-const EvaluationAxis = ["楽しさ","分かりやすさ","テストと授業の差"];	
+const EvaluationAxis = ["楽しさ","分かりやすさ","テストの難しさ"];	
 
 export default EvaluationAxis

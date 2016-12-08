@@ -22,8 +22,12 @@ class Experiment2 extends Component {
 
   render() {
     const { sequence, qswap, finEx2} = this.props
+    let id = 0
     return(
-      <Evaluation finEx2={finEx2}/>
+      <Evaluation 
+        id={0}
+        finEx2={finEx2}
+      />
     )
   }
 }
