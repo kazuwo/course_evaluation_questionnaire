@@ -9,8 +9,8 @@ import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 
 import { nextQuestion } from './actions'
 
-const mapStateToProps = ({ sequence, qswap }) => ({
-  sequence, qswap 
+const mapStateToProps = ({ sequence, qswap, }) => ({
+  sequence, qswap, 
 })
 
 const radioStyle = {
@@ -65,7 +65,7 @@ class Experiment1 extends Component {
   }
 
   render() {
-    const { sequence, qswap, valueSelected } = this.props
+    const { sequence, qswap, valueSelected, finEx1 } = this.props
     return (
       <Card>
         <p>departmentValue:{depa}</p>
@@ -104,33 +104,38 @@ class Experiment1 extends Component {
         <Card style={cardStyle}>
           <RadioButtonGroup style={radioStyle} name="department" onChange={this.handleChangeDepartment}> 
             <RadioButton
-              value="machine"
+              value="M"
               label="機械工学科"
               style={radioStyle}
             />
             <RadioButton
-              value="electric"
+              value="E"
               label="電気電子工学科"
               style={radioStyle}
             />
             <RadioButton
-              value="control"
+              value="S"
               label="電子制御工学科"
               style={radioStyle}
             />
             <RadioButton
-              value="information"
+              value="I"
               label="情報工学科"
               style={radioStyle}
             />
             <RadioButton
-              value="city"
+              value="C"
               label="都市環境デザイン工学科"
               style={radioStyle}
             />
           </RadioButtonGroup>
         </Card>
-        <RaisedButton label="決定" onClick={this.handleClick} primary='true' style={buttonStyle}/>
+        <RaisedButton 
+          label="決定" 
+          onClick={finEx1.bind(this, this.state.yearValue, this.state.departmentValue)} 
+          primary='true' 
+          style={buttonStyle}
+        />
         </Card>
 
       )

@@ -18,11 +18,19 @@ const mapStateToProps = ({ sequence, qswap }) => ({
 class Experiment extends Component {
   constructor(props) {
     super(props)
+    this.next = this.next.bind(this)
+    this.finEx1 = this.finEx1.bind(this)
     this.state = {
       slideIndex: 0
     }
   }
 
+  finEx1(year, depa){
+    const ex1Data = String(year)+depa
+    console.log("year:" + year) 
+    console.log("depa:" + depa) 
+    console.log("year+depa:" + ex1Data) 
+}
   next(value) {
     const{ dispatch } = this.props
     dispatch(nextQuestion(value))
@@ -34,7 +42,7 @@ class Experiment extends Component {
   render() {
     const { sequence, qswap } = this.props
     return ((sequence == "question1")?
-      <Experiment1 />
+      <Experiment1 finEx1={this.finEx1}/>
         :(sequence == "question2")?
         <Card>
           <CardText>
