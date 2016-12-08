@@ -10,6 +10,7 @@ import { nextQuestion } from './actions'
 import Subjects from 'components/Subjects'
 import EvaluationAxis from 'components/EvaluationAxis'
 import Experiment1 from './Experiment1'
+import Experiment2 from './Experiment2'
 
 const mapStateToProps = ({ sequence, qswap }) => ({
   sequence, qswap 
@@ -18,11 +19,11 @@ const mapStateToProps = ({ sequence, qswap }) => ({
 class Experiment extends Component {
   constructor(props) {
     super(props)
-    this.next = this.next.bind(this)
     this.finEx1 = this.finEx1.bind(this)
+    this.finEx2 = this.finEx2.bind(this)
     this.state = {
       slideIndex: 0
-    }
+   }
   }
 
   finEx1(year, depa){
@@ -30,8 +31,10 @@ class Experiment extends Component {
     console.log("year:" + year) 
     console.log("depa:" + depa) 
     console.log("year+depa:" + ex1Data) 
-}
-  next(value) {
+    const{ dispatch } = this.props
+    dispatch(nextQuestion(ex1Data))
+  }
+  finEx2(value) {
     const{ dispatch } = this.props
     dispatch(nextQuestion(value))
     this.setState({
@@ -43,23 +46,16 @@ class Experiment extends Component {
     const { sequence, qswap } = this.props
     return ((sequence == "question1")?
       <Experiment1 finEx1={this.finEx1}/>
-        :(sequence == "question2")?
-        <Card>
-          <CardText>
-            <p>{JSON.stringify(Subjects)}</p>
-            <p>{JSON.stringify(EvaluationAxis)}</p>
-            <p>{sequence}</p>
-          </CardText>
-        <RaisedButton label="next" onClick={this.next.bind(this, 1)}/>
-          </Card>
-          :
-          <Card>
-            <CardText>
-              <p>participants/Experiment.js</p>
-            </CardText>
-          </Card>
-          )
-          }
-          }
+      :(sequence == "question2")?
+      <Experiment2 finEx2={this.finEx2}/> 
+      :
+      <Card>
+        <CardText>
+          <p>participants/Experiment.js</p>
+        </CardText>
+      </Card>
+    )
+  }
+}
 
-          export default connect(mapStateToProps)(Experiment)
+export default connect(mapStateToProps)(Experiment)

@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
 import { Card, CardText } from 'material-ui/Card'
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-import ActionFavorite from 'material-ui/svg-icons/action/favorite';
-import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 
 import { nextQuestion } from './actions'
 
@@ -28,10 +26,6 @@ const buttonStyle = {
   marginLeft: '5%',
 }
 
-let ddt = [1,2]
-let year = 0
-let depa = ""
-
 class Experiment1 extends Component {
   constructor(props) {
     super(props)
@@ -41,15 +35,6 @@ class Experiment1 extends Component {
     }
     this.handleChangeYear = this.handleChangeYear.bind(this)
     this.handleChangeDepartment = this.handleChangeDepartment.bind(this)
-    this.handleClick= this.handleClick.bind(this)
-  }
-
-  next(value) {
-    const{ dispatch } = this.props
-    dispatch(nextQuestion(value))
-    this.setState({
-      slideIndex: 1
-    })
   }
 
   handleChangeYear(event, yearValue){
@@ -58,18 +43,11 @@ class Experiment1 extends Component {
   handleChangeDepartment(event, departmentValue){
     this.setState({departmentValue})
   }
-  handleClick(){
-    year = this.state.yearValue
-    depa = this.state.departmentValue
-    this.setState({ddt})
-  }
 
   render() {
     const { sequence, qswap, valueSelected, finEx1 } = this.props
     return (
       <Card>
-        <p>departmentValue:{depa}</p>
-        <p>yearValue:{year}</p>
       <Card style={cardStyle}>
         <RadioButtonGroup style={radioStyle} name="year" onChange={this.handleChangeYear}>
           <RadioButton
