@@ -9,6 +9,7 @@ import { Card, CardText } from 'material-ui/Card'
 import { nextQuestion } from './actions'
 import Subjects from 'components/Subjects'
 import EvaluationAxis from 'components/EvaluationAxis'
+import Experiment1 from './Experiment1'
 
 const mapStateToProps = ({ sequence, qswap }) => ({
   sequence, qswap 
@@ -17,11 +18,19 @@ const mapStateToProps = ({ sequence, qswap }) => ({
 class Experiment extends Component {
   constructor(props) {
     super(props)
+    this.next = this.next.bind(this)
+    this.finEx1 = this.finEx1.bind(this)
     this.state = {
       slideIndex: 0
     }
   }
 
+  finEx1(year, depa){
+    const ex1Data = String(year)+depa
+    console.log("year:" + year) 
+    console.log("depa:" + depa) 
+    console.log("year+depa:" + ex1Data) 
+}
   next(value) {
     const{ dispatch } = this.props
     dispatch(nextQuestion(value))
@@ -33,14 +42,7 @@ class Experiment extends Component {
   render() {
     const { sequence, qswap } = this.props
     return ((sequence == "question1")?
-      <Card>
-        <CardText>
-          <p>{JSON.stringify(Subjects)}</p>
-          <p>{JSON.stringify(EvaluationAxis)}</p>
-          <p>{sequence}</p>
-        </CardText>
-        <RaisedButton label="next" onClick={this.next.bind(this, 1)}/>
-        </Card>
+      <Experiment1 finEx1={this.finEx1}/>
         :(sequence == "question2")?
         <Card>
           <CardText>
