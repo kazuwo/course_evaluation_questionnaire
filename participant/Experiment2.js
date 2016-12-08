@@ -7,6 +7,7 @@ import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 
 import { nextQuestion } from './actions'
 import Evaluation from './Evaluation'
+import Subjects from 'components/Subjects'
 
 const mapStateToProps = ({ sequence, qswap, }) => ({
   sequence, qswap, 
@@ -24,10 +25,24 @@ class Experiment2 extends Component {
     const { sequence, qswap, finEx2} = this.props
     let id = 0
     return(
-      <Evaluation 
-        id={0}
-        finEx2={finEx2}
-      />
+      <div>
+        <Card style={{padding: '5%'}}>
+          {Subjects.map((sub, i) => {
+            return(
+              <Evaluation 
+                id={i}
+                finEx2={finEx2}
+              />
+            )
+          })}
+          <br />
+          <RaisedButton
+            label='next'
+            primary='true'
+            onClick={finEx2.bind(this, "finEx2")}
+          />
+        </Card>
+      </div>
     )
   }
 }
