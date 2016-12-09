@@ -34,12 +34,10 @@ class Experiment extends Component {
     const{ dispatch } = this.props
     dispatch(nextQuestion(ex1Data))
   }
-  finEx2(value) {
+  finEx2(evaluationData) {
+    console.log("evaluationData:" + JSON.stringify(evaluationData))
     const{ dispatch } = this.props
-    dispatch(nextQuestion(value))
-    this.setState({
-      slideIndex: 1
-    })
+    //dispatch(nextQuestion(evaluationData))
   }
 
   render() {
