@@ -49,8 +49,8 @@ class Evaluation extends Component {
   }
 
   handleConfirm() {
-    const { collectConfirm } = this.props
-    collectConfirm([this.state.value1, this.state.value2, this.state.value3])
+    const { id, collectConfirm } = this.props
+    collectConfirm(id, [this.state.value1, this.state.value2, this.state.value3])
     this.setState({ isConfirm: true })
   }
 

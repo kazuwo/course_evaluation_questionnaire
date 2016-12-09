@@ -13,6 +13,8 @@ const mapStateToProps = ({ sequence, qswap, }) => ({
   sequence, qswap, 
 })
 
+let evaluationData = new Array(Subjects.length)
+
 class Experiment2 extends Component {
   constructor(props) {
     super(props)
@@ -25,15 +27,15 @@ class Experiment2 extends Component {
 
    finishQuestion() {
      const { finEx2 } = this.props
+     finEx2(JSON.parse(JSON.stringify(evaluationData)))
   }
 
-  collectConfirm(arr){
-    console.log(arr)
+  collectConfirm(fromSub, arr){
+    evaluationData[fromSub] = arr
   }
 
   render() {
     const { sequence, qswap } = this.props
-    let id = 0
     return(
       <div>
         <Card style={{padding: '5%'}}>
