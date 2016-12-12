@@ -10,7 +10,7 @@ import CircularProgress from 'material-ui/CircularProgress'
 import PageButtons from './PageButtons'
 import DownloadButton from './DownloadButton'
 
-import Chart from 'components/Chart'
+import Chart from './Chart'
 
 const mapStateToProps = ({loading, page, participants}) => ({
   loading, page, participants
@@ -52,8 +52,10 @@ class App extends Component {
               marginBottom: "5%"
             }}
           />
-          <Chart /><br />
-          <DownloadButton style={{marginLeft: '2%'}} disabled={page != "result"} />
+          {(page == "result") ? <Chart /> : null}
+          <br />
+          {(page == "hide DLbutton") ? <DownloadButton style={{marginLeft: '2%'}} disabled={page != "result"} /> : null}
+          
         </div>
       )
     }
