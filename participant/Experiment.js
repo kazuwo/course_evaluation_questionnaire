@@ -36,8 +36,16 @@ class Experiment extends Component {
   }
   finEx2(evaluationData) {
     console.log("evaluationData:" + JSON.stringify(evaluationData))
+    let arr = new Array()
+    let counter = 0
+    for(let i=0; i<Subjects.length; i++){
+      for(let q=0; q<EvaluationAxis.length; q++){
+        arr[counter] = evaluationData[q]
+        counter++
+      }
+    }
     const{ dispatch } = this.props
-    //dispatch(nextQuestion(evaluationData))
+    dispatch(nextQuestion(arr))
   }
 
   render() {
