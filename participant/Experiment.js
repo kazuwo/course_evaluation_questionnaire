@@ -37,7 +37,7 @@ class Experiment extends Component {
   finEx2(evaluationData) {
     console.log("evaluationData:" + JSON.stringify(evaluationData))
     const{ dispatch } = this.props
-    //dispatch(nextQuestion(evaluationData))
+    dispatch(nextQuestion(evaluationData))
   }
 
   render() {
