@@ -11,6 +11,7 @@ import Subjects from 'components/Subjects'
 import EvaluationAxis from 'components/EvaluationAxis'
 import Experiment1 from './Experiment1'
 import Experiment2 from './Experiment2'
+import EndQuestion from './EndQuestion'
 
 const mapStateToProps = ({ sequence, qswap }) => ({
   sequence, qswap 
@@ -55,11 +56,7 @@ class Experiment extends Component {
       :(sequence == "question2")?
       <Experiment2 finEx2={this.finEx2}/> 
       :
-      <Card>
-        <CardText>
-          <p>participants/Experiment.js</p>
-        </CardText>
-      </Card>
+      <EndQuestion />
     )
   }
 }

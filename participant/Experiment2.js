@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import RaisedButton from 'material-ui/RaisedButton'
-import { Card, CardText } from 'material-ui/Card'
+import { Card, CardText, CardTitle } from 'material-ui/Card'
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 
 import { nextQuestion } from './actions'
@@ -39,6 +39,7 @@ class Experiment2 extends Component {
     return(
       <div>
         <Card style={{padding: '5%'}}>
+          <CardTitle title="授業評価アンケート" subtitle="5段階評価" />
           {Subjects.map((sub, i) => {
             return(
               <Evaluation 
