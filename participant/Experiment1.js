@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import RaisedButton from 'material-ui/RaisedButton'
-import { Card, CardText } from 'material-ui/Card'
+import { Card, CardText, CardTitle } from 'material-ui/Card'
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 
 import { nextQuestion } from './actions'
@@ -48,6 +48,7 @@ class Experiment1 extends Component {
     const { sequence, qswap, valueSelected, finEx1 } = this.props
     return (
       <Card>
+        <CardTitle title="授業評価アンケート" subtitle="学年学科確認" />
       <Card style={cardStyle}>
         <RadioButtonGroup style={radioStyle} name="year" onChange={this.handleChangeYear}>
           <RadioButton

@@ -10,10 +10,10 @@ const mapStateToProps = ({ question_text }) => ({
 
 const Description = ({ question_text }) => (
   <Card>
-    <CardTitle title="アレのパラドクス" subtitle="ルールの説明" />
+    <CardTitle title="授業評価アンケート" subtitle="ルールの説明" />
     <CardText>
-      {question_text['description_text'].split('\n').map( line => <p>{line}</p>)}
-    </CardText>
+      <p>それぞれの科目について、５段階で評価してください。</p>
+  </CardText>
   </Card>
 )
 export default connect(mapStateToProps)(Description)
